@@ -84,10 +84,11 @@ function renderAll() {
     for (let i = 0; i < allDrinks.length; i++) {
         allDrinks[i].render();
         allDrinks[i].renderTable();
+        //final error
     }
 }
 
-
+let localdebug  = 0;
 renderAll();
 
 // local storage:
