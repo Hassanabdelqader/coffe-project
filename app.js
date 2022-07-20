@@ -78,7 +78,7 @@ Drink.prototype.renderTable = function () {
 
 let latte = new Drink("Latte", ["milk", "ice", "sugar"], "./assets/latte.png", true, true, 1);
 let mocha = new Drink("mocha", ["milk", "coffee", "ice", "sugar"], "./assets/mocha.png", true, false, 2);
-let hotChocalte = new Drink("hot chocalte", ["milk", "coffee", "ice", "sugar"], "./assets/mocha.png", true, false, 2)
+let hotChocalte = new Drink("hot chocalte", ["milk", "tea", "ice", "sugar"], "./assets/mocha.png", true, false, 2)
 
 function renderAll() {
     for (let i = 0; i < allDrinks.length; i++) {
@@ -100,17 +100,17 @@ function saveData(data) {
 
 
 function getData() {
-    let retrievedData = localStorage.getItem("drink");
-    
     let arrayData = JSON.parse(retrievedData);
     // each object doesn't has access to render method
     if (arrayData != null) {
-        for (let i = 1; i < arrayData.length; i++) {
+        for (let i = allDrinks.length; i < arrayData.length; i++) {
             // reinstantiation: re creating instance
             new Drink(arrayData[i].name, arrayData[i].ingredients, arrayData[i].image, arrayData[i].isCol, arrayData[i].isHot, arrayData[i].price);
         }
     }
     renderAll();
 }
-
 getData();
+
+
+
